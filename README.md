@@ -20,6 +20,7 @@ recommendation diversity.
 - Rank recommendations using cosine similarity
 - Explain recommendations through shared genres
 - Exclude the selected movie and movies without listed genres
+- Resolve genre-similarity ties using rating scores adjusted for rating count
 
 ## Method
 
@@ -27,11 +28,10 @@ Each movie is represented by a binary vector indicating its genres.
 Cosine similarity measures the similarity between the selected movie
 and other movies in the catalogue.
 
-Recommendations are ranked by descending similarity. Ties are
-resolved by ascending movie ID.
+Recommendations are ranked by descending similarity. Equal genre-similarity scores are ranked using weighted ratings,then rating counts, then movie IDs.
 
 Only genre information is used in the current recommendation method.
-Ratings and tags are loaded for exploration and future development.
+Genres determine similarity, while ratings provide a secondary ranking signal. Tags are reserved for future development.
 
 ## Dataset
 
